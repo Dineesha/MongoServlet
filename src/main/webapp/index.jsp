@@ -1,28 +1,50 @@
-    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-        pageEncoding="ISO-8859-1"%>
-    <html>
-    <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Login Application</title>
-    </head>
-    <body>
-        <form action="loginServlet" method="post">
-            <fieldset style="width: 300px">
-                <legend> Login to App </legend>
-                <table>
-                    <tr>
-                        <td>User ID</td>
-                        <td><input type="text" name="username" required="required" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" required="required" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Login" /></td>
-                    </tr>
-                </table>
-            </fieldset>
-        </form>
-    </body>
-    </html>
+<html>
+<head>
+    <title>Login</title>
+
+    <style>
+        table {
+        border-collapse: collapse;
+        border: 5px solid black;
+        width:35%;
+        margin: auto;
+        margin-top: 10%;
+        cell-padding: 10px;
+        }
+        td {
+        padding: 15px;
+        }
+    </style>
+
+</head>
+
+<body>
+<h2>Login!</h2>
+
+<table>
+    <form action="Login" method="post">
+        <tr>
+            <td width="35%">
+                <label id="lblun">User Name: </label>
+            </td>
+            <td>
+                <input type="text" name="txtUn" maxlength="100"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label id="lblPw">Password: </label>
+            </td>
+            <td>
+                <input type="password" name="txtPw"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Login">
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>
