@@ -11,21 +11,19 @@ import java.net.UnknownHostException;
 
 public class MongoDBConListener implements ServletContextListener {
 
-    static MongoClient client = null;
-    static DBCollection dbcoll = null;
+    static MongoClient cl = null;
+    static DBCollection col = null;
 
     //@Override
     public void contextInitialized(ServletContextEvent sce) {
-        /**
-         * Database connection establishing
-         */
+       
         try {
             ServletContext ctx = sce.getServletContext();
 
-            client = new MongoClient(ctx.getInitParameter("MONGO_HOST"),// Database host
+            cl = new MongoClient(ctx.getInitParameter("MONGO_HOST"),// Database host
                     Integer.parseInt(ctx.getInitParameter("MONGO_PORT"))); // Connecting port
-            DB db = client.getDB(ctx.getInitParameter("MONGO_DBNAME")); // get the database name
-            dbcoll = db.getCollection(ctx.getInitParameter("MONGO_COLLECTION")); // get the collection(table)
+            DB db = cl.getDB(ctx.getInitParameter("MONGO_DBNAME")); // get the database name
+            col = db.getCollection(ctx.getInitParameter("MONGO_COLLECTION")); 
 
         } catch (UnknownHostException e) {
 
@@ -38,8 +36,8 @@ public class MongoDBConListener implements ServletContextListener {
         /**
          * Database connection closing
          */
-        client = (MongoClient) sce.getServletContext().getAttribute("MONGO_CLIENT");
-        client.close();
+        cl = (MongoClient) sce.getServletContext().getAttribute("MONGO_CLIENT");
+        cl.close();
     }
 
 }
