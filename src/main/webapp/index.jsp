@@ -10,7 +10,7 @@
 <h2>Login</h2>
 
 
-    <form action="loginServlet" method="post">
+    <form action="Login" method="post">
                <fieldset style="width: 300px">
                    <legend> Login to App </legend>
                    <table>
