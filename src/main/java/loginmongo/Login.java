@@ -19,16 +19,17 @@ public class Login extends HttpServlet {
 
         response.setContentType("text/html");
 
-        String username = request.getParameter("txtUn"); // get the name entered by user's input
-        String password = request.getParameter("txtPw"); //get the password entered by user's input
+        String username = request.getParameter("txtUn"); 
+        String password = request.getParameter("txtPw"); 
 
         try {
             BasicDBObject searchQuery = new BasicDBObject();
-            searchQuery.put("userName", username); // Gives user name to the query
-            searchQuery.put("usrPass", password); // Gives password to the query
+            searchQuery.put("userName", username); // pass username 
+            searchQuery.put("usrPass", password); // pass password 
             DBCursor cursor = MongoDBConListener.dbcoll.find(searchQuery); // send the query to the collection
 
-            if (cursor.hasNext()) { // check whether the query has a result
+            if (cursor.hasNext()) { 
+                // check if query has a valid result
                 response.sendRedirect("success.html");
             } else {
                 response.sendRedirect("error.html");
